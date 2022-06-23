@@ -1,0 +1,23 @@
+{
+  "name": "dandd-react-ts",
+  "version": "1.0.0",
+  "description": "D&D Monster Simulator",
+  "main": "index.js",
+  "scripts": {
+    "magic": "webpack"
+  },
+  "keywords": [
+    "D&D"
+  ],
+  "author": "Caelan Priddy",
+  "license": "ISC",
+  "dependencies": {
+    "@types/react": "^18.0.14",
+    "@types/react-dom": "^18.0.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "ts-loader": "^9.3.0",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0"
+  }
+}
