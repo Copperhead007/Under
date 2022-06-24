@@ -13,9 +13,10 @@ function App() {
   const[username, setUsername] = useState("");
   const[password, setPassword] = useState("");
 
-
+  //https://copperhead007.github.io/Under/dandd-api/public
+  //http://localhost:3001
   const register = () => {
-    Axios.post("http://localhost:3001/register", 
+    Axios.post("https://copperhead007.github.io/Under/dandd-api/public/register", 
     {
       username : usernameReg,
       password : passwordReg
@@ -24,7 +25,7 @@ function App() {
     });
   };
   const login = () => {
-    Axios.post("http://localhost:3001/login", 
+    Axios.post("https://copperhead007.github.io/Under/dandd-api/public/login", 
     {username : username,
      password : password
     }).then((response) => {
@@ -37,7 +38,7 @@ function App() {
     };
     const addParty = () => {
       console.log(name);
-        Axios.post('http://localhost:3001/create',{name: name,
+        Axios.post('https://copperhead007.github.io/Under/dandd-api/public/create',{name: name,
          apl : apl, difficulty : diff}).then(() => {
           console.log("success");
          })
