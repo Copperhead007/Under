@@ -28,8 +28,8 @@ export class SampleServerlessStack extends cdk.Stack {
     const api = new apigw.RestApi(this,"hello-api");
 
     //Create branches
-    const groups = api.root.resourceForPath("hello");
-    const group = groups.addMethod("GET", new apigw.LambdaIntegration(dynamoLambda));
+    const helloGroups = api.root.resourceForPath("helloGroups");
+    helloGroups.addMethod("GET", new apigw.LambdaIntegration(dynamoLambda));
 
     new cdk.CfnOutput(this, "HTTP API URL",{
       value: api.url ?? "Something went wrong with deploy",
