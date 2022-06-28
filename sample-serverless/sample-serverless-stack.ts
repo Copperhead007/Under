@@ -17,7 +17,7 @@ export class SampleServerlessStack extends cdk.Stack {
     //lambda function
     const dynamoLambda = new lambda.Function(this, "DynamoLambdaHandler", {
       runtime: lambda.Runtime.NODEJS_12_X,
-      code: lambda.Code.fromAsset("./functions"),
+      code: lambda.Code.asset("./functions"),
       handler: "function.handler",
       environment: {
         HELLO_TABLE_NAME: table.tableName,
@@ -26,10 +26,9 @@ export class SampleServerlessStack extends cdk.Stack {
     //permissions to lambda to dynamo table
     table.grantReadWriteData(dynamoLambda);
     const api = new apigw.RestApi(this,"hello-api");
-
-    //Create branches
-    const groups = api.root.resourceForPath("hello");
-    const group = groups.addMethod("GET", new apigw.LambdaIntegration(dynamoLambda));
+    api.root
+    .resourceForPath("hello")
+    .addMethod("GET", new apigw.LambdaIntegration(dynamoLambda));
 
     new cdk.CfnOutput(this, "HTTP API URL",{
       value: api.url ?? "Something went wrong with deploy",
