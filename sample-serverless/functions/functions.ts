@@ -1,3 +1,4 @@
+/*
 import { DynamoDB } from "aws-sdk";
 import { apiGatewayResponse } from "./tools/response";
 import { APIGatewayEvent } from "aws-lambda";
@@ -22,7 +23,7 @@ exports.handler = async function (event: APIGatewayEvent) {
 
   const params: DynamoDB.DocumentClient.QueryInput = {
     TableName: HELLO_TABLE_NAME!
-    /*,
+    
     KeyConditionExpression: "#87ea0 = :87ea0",
     ExpressionAttributeValues: {
       ":87ea0": id,
@@ -30,7 +31,7 @@ exports.handler = async function (event: APIGatewayEvent) {
     ExpressionAttributeNames: {
       "#87ea0": "userName",
     },
-    */
+    
   };
 
   try {
@@ -42,3 +43,4 @@ exports.handler = async function (event: APIGatewayEvent) {
     return apiGatewayResponse(500, err);
   }
 };
+*/
