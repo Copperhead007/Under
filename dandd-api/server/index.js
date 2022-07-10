@@ -5,7 +5,6 @@ import mysql from 'mysql';
 const app = express();
 
 app.use(express.json());
-app.use(cors());
 
 
 
@@ -50,6 +49,8 @@ const db = mysql.createConnection({
         }
         );
     });
+
+    app.use(cors());
 
     /* For other party api..
 app.post('/create',(req,res)=>{

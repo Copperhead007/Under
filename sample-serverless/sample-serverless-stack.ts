@@ -1,7 +1,5 @@
-import * as cdk from "@aws-cdk/core";
-import * as lambda from "@aws-cdk/aws-lambda";
-import * as dynamodb from "@aws-cdk/aws-dynamodb";
-import * as apigw from '@aws-cdk/aws-apigateway';
+import { Stack, StackProps } from 'aws-cdk-lib';
+import { Construct } from 'constructs';
 
 
 export class SampleServerlessStack extends cdk.Stack {

@@ -13,6 +13,8 @@ function App() {
   const[username, setUsername] = useState("");
   const[password, setPassword] = useState("");
 
+  const[resultToDisplay, setResultToDisplay] = useState(null)
+
   //https://copperhead007.github.io/Under/dandd-api/public
   //
   const register = () => {
@@ -44,6 +46,16 @@ function App() {
          })
     };
 
+    const getQuote = () => {
+      Axios.get('https://www.dnd5eapi.co/api/monsters/')
+      .then(response => {
+        console.log('GET QUOTE DATA:', response.data)
+        setResultToDisplay(response.data.results)
+      }).catch(err => {
+        console.log(err)
+      })
+    }
+
   return (
     <div className="App">
       <div className="registration">
@@ -65,6 +77,10 @@ function App() {
           setPassword(e.target.value);}}/>
         <button onClick={login}>Login</button>
       </div>
+
+      <button onClick={() => getQuote()}>getQuote</button>
+      <br/>
+      {resultToDisplay ? resultToDisplay.map((result) => (<p>{result.name}</p>)) : <></>}
     </div>
   );
 }
